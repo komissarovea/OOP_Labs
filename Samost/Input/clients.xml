@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<client name="Иванов А.А." percentBonus="2" fixBonus="0">
+		<deposit type="1">
+			<payment date="01.01.2016" sum="5000"/>
+			<payment date="01.04.2016" sum="2000"/>
+		</deposit>
+		<deposit type="2" >
+			<payment date="01.01.2016" sum="4000"/>
+		</deposit>
+	</client>
+	<client name="Петров В.В." percentBonus="0" fixBonus="500">
+		<deposit type="2">
+			<payment date="01.01.2016" sum="4000"/>
+		</deposit>
+		<deposit type="3">
+			<payment date="01.01.2016" sum="2000"/>
+		</deposit>
+		<deposit type="1">
+			<payment date="01.01.2016" sum="3000"/>
+		</deposit>
+	</client>
+	<client name="Сидоров К.К." percentBonus="3" fixBonus="0">
+		<deposit type="2">
+			<payment date="01.01.2016" sum="4000"/>
+		</deposit>
+		<deposit type="3">
+			<payment date="01.01.2016" sum="7000"/>
+		</deposit>
+	</client>
+	<client name="Крылова В.А." percentBonus="0" fixBonus="700">
+		<deposit type="2">
+			<payment date="01.01.2016" sum="8000"/>
+		</deposit>
+	</client>
+</root>

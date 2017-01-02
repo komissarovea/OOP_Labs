@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ArrayOfFunction xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Function xsi:type="Line">
+    <K>2</K>
+    <B>5</B>
+  </Function>
+  <Function xsi:type="Kub">
+    <K>6</K>
+    <B>4</B>
+    <C>7</C>
+  </Function>
+  <Function xsi:type="Parabola">
+    <K>3</K>
+    <C>8</C>
+  </Function>
+  <Function xsi:type="Line">
+    <K>9</K>
+    <B>1</B>
+  </Function>
+</ArrayOfFunction>

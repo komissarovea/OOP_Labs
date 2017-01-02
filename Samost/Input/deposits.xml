@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <deposit key="1" name="Юбилейный" percent="10" />
+	<deposit key="2" name="Пенсионный" percent="15" />
+	<deposit key="3" name="Универсальный" percent="7" />
+</root>
