@@ -1,12 +1,12 @@
 ﻿using Samost.Exceptions;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Samost
 {
+    /// <summary>
+    /// Client of bank
+    /// </summary>
     public class Client
     {
         #region Fields
