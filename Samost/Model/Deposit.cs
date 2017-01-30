@@ -77,7 +77,7 @@ namespace Samost
                 int tempSum = 0;
                 List<Payment> sortedPayments = this.Payments.OrderBy(p => p.Date).ToList();
                 DateTime initialDate = sortedPayments.First().Date;
-                int daysInYear = CommonHelper.GetDaysInYear(initialDate);
+                int daysInYear = GetDaysInYear(initialDate);
                 double dayPercent = (double)this.Type.Percent / daysInYear;
                 //foreach (var payment in sortedPayments)
                 int count = this.Payments.Count;
@@ -91,6 +91,13 @@ namespace Samost
             }
             return payout;
         }
+
+        private int GetDaysInYear(DateTime thisDate)
+        {
+            var nextDate = thisDate.AddYears(1);
+            return (nextDate - thisDate).Days;
+        }
+
 
         public override string ToString()
         {
