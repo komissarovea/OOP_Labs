@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections;
+﻿using Samost.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Linq;
-using Samost.Exceptions;
 
 namespace Samost
 {
     public static class StaticHelper
     {
-        const string DEPOSITS_FILE = "Input\\deposits.xml";
-        const string CLIENTS_FILE = "Input\\clients.xml";
+        const string DEPOSITS_FILE = "deposits.xml";
+        const string CLIENTS_FILE = "clients.xml";
 
         #region Deposit Types
 
@@ -30,6 +29,11 @@ namespace Samost
                     };
                     depositTypes.Add(type.Key, type);
                 }
+            }
+            else
+            {
+                File.WriteAllText(DEPOSITS_FILE, Properties.Resources.deposits);
+                depositTypes = LoadDepositTypes();
             }
             return depositTypes;
         }
@@ -93,6 +97,11 @@ namespace Samost
                     }
                     clients.Add(client);
                 }
+            }
+            else
+            {
+                File.WriteAllText(CLIENTS_FILE, Properties.Resources.clients);
+                clients = LoadClients(depositTypes);
             }
             return clients;
         }
