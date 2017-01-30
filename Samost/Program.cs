@@ -68,21 +68,23 @@ namespace Samost
                             StaticHelper.SaveDepositTypes(depositTypes);
                             StaticHelper.SaveClients(clients);
                             Console.WriteLine("Данные сохранены.");
-                            Console.Write("Выйти...");
+                            Console.Write("Выйти... (Enter)");
                             break;
                     }
+                    Console.Write("\nВернуться в меню... (Enter)");
+                    Console.ReadLine();
                 }
             }
             catch (NameException nex)
             {
                 Console.WriteLine(nex.Message);
+                Console.ReadLine();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                Console.ReadLine();
             }
-
-            Console.ReadLine();
         }
     }
 }

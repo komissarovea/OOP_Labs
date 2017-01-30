@@ -53,7 +53,6 @@ namespace Samost
             Console.WriteLine("Информация о процентах по вкладам:");
             foreach (var key in depositTypes.Keys)
                 Console.WriteLine("{0}) {1}", key, depositTypes[key]);
-            Console.ReadLine();
         }
 
         #endregion
@@ -137,7 +136,6 @@ namespace Samost
                     Console.WriteLine("\t{0}) {1}", j, client.Deposits[j - 1]);
                 Console.WriteLine();
             }
-            Console.ReadLine();
         }
 
         #endregion
@@ -179,7 +177,6 @@ namespace Samost
             }
             else
                 Console.WriteLine("Клиента с таким номером нет!");
-            Console.ReadLine();
         }
 
         public static void CalculateTotalPayoutSum(List<Client> clients)
@@ -193,7 +190,6 @@ namespace Samost
                 totalSum += clientSum;
             }
             Console.WriteLine("\nОбщая сумма выплат: {0} руб.", totalSum);
-            Console.ReadLine();
         }
 
         #endregion
