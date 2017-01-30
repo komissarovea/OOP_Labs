@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 namespace Samost
 {
-    public static class StaticHelper
+    public static class CommonHelper
     {
         const string DEPOSITS_FILE = "deposits.xml";
         const string CLIENTS_FILE = "clients.xml";
@@ -157,7 +157,7 @@ namespace Samost
             for (int i = 1; i <= clients.Count; i++)
                 Console.WriteLine("{0}. {1}", i, clients[i - 1].Name);
             Console.WriteLine("Введите номер клиента:");
-            int clientNumber = StaticHelper.ReadPositiveInt();
+            int clientNumber = CommonHelper.ReadPositiveInt();
             if (clientNumber <= clients.Count)
             {
                 var client = clients[clientNumber - 1];
@@ -165,12 +165,12 @@ namespace Samost
                 for (int j = 1; j <= client.Deposits.Count; j++)
                     Console.WriteLine("{0}) {1}", j, client.Deposits[j - 1]);
                 Console.WriteLine("Введите номер вклада:");
-                int depositNumber = StaticHelper.ReadPositiveInt();
+                int depositNumber = CommonHelper.ReadPositiveInt();
                 if (depositNumber <= client.Deposits.Count)
                 {
                     var deposit = client.Deposits[depositNumber - 1];
                     Console.WriteLine("Введите сумму:");
-                    int paymentSum = StaticHelper.ReadInt();
+                    int paymentSum = CommonHelper.ReadInt();
                     try
                     {
                         deposit.Replenish(paymentSum);

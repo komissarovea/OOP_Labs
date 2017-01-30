@@ -29,15 +29,15 @@ namespace Samost
         {
             try
             {
-                Dictionary<int, DepositType> depositTypes = StaticHelper.LoadDepositTypes();
-                List<Client> clients = StaticHelper.LoadClients(depositTypes);
+                Dictionary<int, DepositType> depositTypes = CommonHelper.LoadDepositTypes();
+                List<Client> clients = CommonHelper.LoadClients(depositTypes);
 
                 int choice = -1;
                 while (choice != 5)
                 {
                     Console.Clear();
                     Console.WriteLine("МЕНЮ:");
-                    Console.WriteLine("1) посмотреть информацию о процентах по вкладам;");
+                    Console.WriteLine("1) просмотреть информацию о процентах по вкладам;");
                     Console.WriteLine("2) просмотреть информацию о клиентах;");
                     Console.WriteLine("3) пополнить величину вклада;");
                     Console.WriteLine("4) вычислить общую сумму выплат для всех вкладов;");
@@ -45,25 +45,25 @@ namespace Samost
 
                     Console.WriteLine("\nВыберите действие:");
                     //int.TryParse(Console.ReadLine(), out choice);
-                    choice = StaticHelper.ReadInt();
+                    choice = CommonHelper.ReadInt();
 
                     switch (choice)
                     {
                         case 1:
-                            StaticHelper.ShowDepositTypes(depositTypes);
+                            CommonHelper.ShowDepositTypes(depositTypes);
                             break;
                         case 2:
-                            StaticHelper.ShowClients(clients);
+                            CommonHelper.ShowClients(clients);
                             break;
                         case 3:
-                            StaticHelper.ReplenishDeposit(clients);
+                            CommonHelper.ReplenishDeposit(clients);
                             break;
                         case 4:
-                            StaticHelper.CalculateTotalPayoutSum(clients);
+                            CommonHelper.CalculateTotalPayoutSum(clients);
                             break;
                         case 5:
-                            StaticHelper.SaveDepositTypes(depositTypes);
-                            StaticHelper.SaveClients(clients);
+                            CommonHelper.SaveDepositTypes(depositTypes);
+                            CommonHelper.SaveClients(clients);
                             Console.WriteLine("Данные сохранены.");
                             Console.Write("Выйти... (Enter)");
                             break;

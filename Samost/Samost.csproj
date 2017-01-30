@@ -51,7 +51,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="StaticHelper.cs" />
+    <Compile Include="CommonHelper.cs" />
     <Compile Include="Model\Deposit.cs" />
     <Compile Include="Model\DepositType.cs" />
     <Compile Include="Model\Client.cs" />
