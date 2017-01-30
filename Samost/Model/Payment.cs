@@ -1,4 +1,5 @@
-﻿using System;
+﻿/// Комиссаров Евгений Александрович, 50326-2, вариант 5
+using System;
 
 namespace Samost
 {

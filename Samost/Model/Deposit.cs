@@ -1,4 +1,4 @@
-﻿using Samost.Exceptions;
+﻿/// Комиссаров Евгений Александрович, 50326-2, вариант 5
 using System;
 using System.Collections.Generic;
 using System.Linq;
