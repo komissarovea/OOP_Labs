@@ -7,7 +7,8 @@ using System.Xml.Linq;
 namespace Samost
 {
     /// <summary>
-    /// Предметная область: Банк. Информационная система банка хранит описание процентов по различным вкладам. 
+    /// Предметная область: Банк. 
+    /// Информационная система банка хранит описание процентов по различным вкладам. 
     /// Система хранит информацию о вкладчиках и сделанных ими вкладах. 
     /// Каждый вкладчик имеет дополнительные бонусы.
     /// Одним вкладчикам бонусы заданы в процентах от вклада, 
@@ -30,12 +31,16 @@ namespace Samost
         #region Constant Fields
 
         const string DEPOSITS_FILE = "deposits.xml";
-        const string CLIENTS_FILE = "clients.xml"; 
+        const string CLIENTS_FILE = "clients.xml";
 
         #endregion
 
         #region Deposit Types
 
+        /// <summary>
+        /// Загрузить типы вкладов (описание процентов)
+        /// </summary>
+        /// <returns></returns>
         public static Dictionary<int, DepositType> LoadDepositTypes()
         {
             Dictionary<int, DepositType> depositTypes = new Dictionary<int, DepositType>();
@@ -61,20 +66,10 @@ namespace Samost
             return depositTypes;
         }
 
-        public static void SaveDepositTypes(Dictionary<int, DepositType> depositTypes)
-        {
-            XDocument xdoc = new XDocument(new XElement("root"));
-            foreach (var key in depositTypes.Keys)
-            {
-                xdoc.Root.Add(new XElement("deposit",
-                    new XAttribute("key", key),
-                    new XAttribute("name", depositTypes[key].Name),
-                    new XAttribute("percent", depositTypes[key].Percent)
-                    ));
-            }
-            xdoc.Save(DEPOSITS_FILE);
-        }
-
+        /// <summary>
+        /// Отобразить типы вкладов 
+        /// </summary>
+        /// <param name="depositTypes"></param>
         public static void ShowDepositTypes(Dictionary<int, DepositType> depositTypes)
         {
             Console.WriteLine("Информация о процентах по вкладам:");
@@ -86,6 +81,11 @@ namespace Samost
 
         #region Clients
 
+        /// <summary>
+        /// Загрузить информацию о клиентах
+        /// </summary>
+        /// <param name="depositTypes"></param>
+        /// <returns></returns>
         public static List<Client> LoadClients(Dictionary<int, DepositType> depositTypes)
         {
             List<Client> clients = new List<Client>();
@@ -129,6 +129,10 @@ namespace Samost
             return clients;
         }
 
+        /// <summary>
+        /// Сохранить информацию о клиентах
+        /// </summary>
+        /// <param name="clients"></param>
         public static void SaveClients(List<Client> clients)
         {
             XDocument xdoc = new XDocument(new XElement("root"));
@@ -156,6 +160,10 @@ namespace Samost
             xdoc.Save(CLIENTS_FILE);
         }
 
+        /// <summary>
+        /// Отобразить информацию о клиентах
+        /// </summary>
+        /// <param name="clients"></param>
         public static void ShowClients(List<Client> clients)
         {
             Console.WriteLine("Информация о клиентах:");
@@ -174,6 +182,10 @@ namespace Samost
 
         #region Deposits
 
+        /// <summary>
+        /// Пополнить вклад одного из клиентов
+        /// </summary>
+        /// <param name="clients"></param>
         public static void ReplenishDeposit(List<Client> clients)
         {
             Console.WriteLine("Клиенты:");
@@ -211,6 +223,10 @@ namespace Samost
                 Console.WriteLine("Клиента с таким номером нет!");
         }
 
+        /// <summary>
+        /// Вычислить общую сумму выплат для всех вкладов
+        /// </summary>
+        /// <param name="clients"></param>
         public static void CalculateTotalPayoutSum(List<Client> clients)
         {
             int totalSum = 0;
@@ -228,6 +244,10 @@ namespace Samost
 
         #region Misc
 
+        /// <summary>
+        /// Считать с консоли целочисленное значение
+        /// </summary>
+        /// <returns></returns>
         public static int ReadInt()
         {
             int x = 0;
@@ -240,6 +260,10 @@ namespace Samost
             return x;
         }
 
+        /// <summary>
+        /// Считать с консоли положительное целочисленное значение
+        /// </summary>
+        /// <returns></returns>
         public static int ReadPositiveInt()
         {
             int x = 0;
@@ -252,9 +276,12 @@ namespace Samost
             return x;
         }
 
-
         #endregion
 
+        /// <summary>
+        /// Точка входа в программу
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             try
@@ -289,13 +316,10 @@ namespace Samost
                             CalculateTotalPayoutSum(clients);
                             break;
                         case 5:
-                            SaveDepositTypes(depositTypes);
                             SaveClients(clients);
-                            Console.WriteLine("Данные сохранены.");
-                            Console.Write("Выйти... (Enter)");
                             break;
                     }
-                    Console.Write("\nВернуться в меню... (Enter)");
+                    Console.Write(choice != 5 ? "\nВернуться в меню... (Enter)" : "Данные сохранены. Выйти... (Enter)");
                     Console.ReadLine();
                 }
             }

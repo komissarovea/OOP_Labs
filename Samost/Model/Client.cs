@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Samost
 {
     /// <summary>
-    /// Client of bank
+    /// Клиент банка (вкладчик)
     /// </summary>
     public class Client
     {
@@ -18,6 +18,9 @@ namespace Samost
 
         #region Properties
 
+        /// <summary>
+        /// Имя клиента (ФИО)
+        /// </summary>
         public string Name
         {
             get { return _name; }
@@ -30,16 +33,29 @@ namespace Samost
             }
         }
 
+        /// <summary>
+        /// Список вкладов
+        /// </summary>
         public List<Deposit> Deposits { get { return _deposits; } }
 
+        /// <summary>
+        /// Бонус в процентах от вклада
+        /// </summary>
         public int PercentBonus { get; set; }
 
+        /// <summary>
+        /// Бонус в виде фиксированной суммы
+        /// </summary>
         public int FixBonus { get; set; }
 
         #endregion
 
         #region Methods
 
+        /// <summary>
+        /// Посчитать сумму выплат для данного клиента
+        /// </summary>
+        /// <returns></returns>
         public int GetPayoutSum()
         {
             int clientSum = 0;
@@ -52,6 +68,10 @@ namespace Samost
             return clientSum;
         }
 
+        /// <summary>
+        /// Возвращает строку, которая описывает данный объект
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return String.Format("{0}, бонус в процентах - {1}%, фиксированный бонус - {2}",

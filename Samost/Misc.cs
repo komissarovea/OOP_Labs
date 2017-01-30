@@ -7,6 +7,31 @@ namespace Samost
 {
     class Misc
     {
+        #region Constant Fields
+
+        const string DEPOSITS_FILE = "deposits.xml";
+        const string CLIENTS_FILE = "clients.xml";
+
+        #endregion
+
+        /// <summary>
+        /// Сохранить типы вкладов
+        /// </summary>
+        /// <param name="depositTypes"></param>
+        public static void SaveDepositTypes(Dictionary<int, DepositType> depositTypes)
+        {
+            XDocument xdoc = new XDocument(new XElement("root"));
+            foreach (var key in depositTypes.Keys)
+            {
+                xdoc.Root.Add(new XElement("deposit",
+                    new XAttribute("key", key),
+                    new XAttribute("name", depositTypes[key].Name),
+                    new XAttribute("percent", depositTypes[key].Percent)
+                    ));
+            }
+            xdoc.Save(DEPOSITS_FILE);
+        }
+
         public static int GetNextNumber(IDictionary dict)
         {
             int retval = 1;
