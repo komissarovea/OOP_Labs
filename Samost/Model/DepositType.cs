@@ -30,7 +30,7 @@ namespace Samost
         #region Methods
         
         /// <summary>
-        /// Возвращает строку, которая описывает данный объект
+        /// Вернуть строку, которая описывает данный объект
         /// </summary>
         /// <returns></returns>
         public override string ToString()

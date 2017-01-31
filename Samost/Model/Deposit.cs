@@ -6,8 +6,7 @@ using System.Linq;
 namespace Samost
 {
     /// <summary>
-    /// Дата начала срока
-    /// Периодичность капитализации
+    /// Вклад
     /// </summary>
     public class Deposit
     {
@@ -87,7 +86,7 @@ namespace Samost
         }
 
         /// <summary>
-        /// Возращает сумму выплат по вкладу
+        /// Вернуть сумму выплат по вкладу
         /// </summary>
         /// <returns></returns>
         public int GetPayoutSum()
@@ -113,7 +112,7 @@ namespace Samost
         }
 
         /// <summary>
-        /// Возвращает количество дней в году для заданной даты
+        /// Вернуть количество дней в году для заданной даты
         /// </summary>
         /// <param name="thisDate"></param>
         /// <returns></returns>
@@ -124,7 +123,7 @@ namespace Samost
         }
 
         /// <summary>
-        /// Возвращает строку, которая описывает данный объект
+        /// Вернуть строку, которая описывает данный объект
         /// </summary>
         /// <returns></returns>
         public override string ToString()

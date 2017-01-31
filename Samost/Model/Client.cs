@@ -11,8 +11,8 @@ namespace Samost
     {
         #region Fields
 
-        private List<Deposit> _deposits = new List<Deposit>();
         private string _name;
+        private List<Deposit> _deposits = new List<Deposit>();
 
         #endregion
 
@@ -69,7 +69,7 @@ namespace Samost
         }
 
         /// <summary>
-        /// Возвращает строку, которая описывает данный объект
+        /// Вернуть строку, которая описывает данный объект
         /// </summary>
         /// <returns></returns>
         public override string ToString()
