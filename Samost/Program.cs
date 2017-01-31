@@ -21,12 +21,12 @@
 /// Добавить перегруженный унарный оператор для увеличения величины вклада.
 /// </summary>
 
-using System; //подключение общей библиотеки классов
-using System.Collections.Generic; //подключение библиотеки классов, определяющих типизированные коллекции
-using System.IO; //подключение библиотеки с набором классов для работы с файлами
-using System.Xml.Linq; //подключение библиотеки для работы с xml-документами
+using System; // подключение общей библиотеки классов
+using System.Collections.Generic; // подключение библиотеки классов, определяющих типизированные коллекции
+using System.IO; // подключение библиотеки с набором классов для работы с файлами
+using System.Xml.Linq; // подключение библиотеки для работы с xml-документами
 
-namespace Samost //пространство имён
+namespace Samost // пространство имён
 {
     /// <summary>
     /// Основной класс программы
@@ -211,39 +211,39 @@ namespace Samost //пространство имён
         /// <param name="clients"></param>
         public static void ReplenishDeposit(List<Client> clients)
         {
-            Console.WriteLine("Клиенты:");
-            for (int i = 1; i <= clients.Count; i++)
-                Console.WriteLine("{0}. {1}", i, clients[i - 1].Name);
-            Console.WriteLine("Введите номер клиента:");
-            int clientNumber = ReadPositiveInt();
-            if (clientNumber <= clients.Count)
+            Console.WriteLine("Клиенты:"); // вывод на консоль
+            for (int i = 1; i <= clients.Count; i++) // перебор списка клиентов
+                Console.WriteLine("{0}. {1}", i, clients[i - 1].Name); // вывод информации о клиенте
+            Console.WriteLine("Введите номер клиента:"); // вывод на консоль
+            int clientNumber = ReadPositiveInt(); // Считать с консоли положительное целочисленное значение
+            if (clientNumber <= clients.Count) // проверить на существование введённый номер
             {
-                var client = clients[clientNumber - 1];
-                Console.WriteLine("Вклады:");
-                for (int j = 1; j <= client.Deposits.Count; j++)
-                    Console.WriteLine("{0}) {1}", j, client.Deposits[j - 1]);
-                Console.WriteLine("Введите номер вклада:");
-                int depositNumber = ReadPositiveInt();
-                if (depositNumber <= client.Deposits.Count)
+                var client = clients[clientNumber - 1]; // инициализация переменной client
+                Console.WriteLine("Вклады:"); // вывод на консоль
+                for (int j = 1; j <= client.Deposits.Count; j++) // перебор вкладов клиента
+                    Console.WriteLine("{0}) {1}", j, client.Deposits[j - 1]); // вывод на консоль информации о вкладе
+                Console.WriteLine("Введите номер вклада:"); // вывод на консоль
+                int depositNumber = ReadPositiveInt(); // Считать с консоли положительное целочисленное значение
+                if (depositNumber <= client.Deposits.Count) // проверить на существование введённый номер
                 {
-                    var deposit = client.Deposits[depositNumber - 1];
-                    Console.WriteLine("Введите сумму:");
-                    int paymentSum = ReadInt();
-                    try
+                    var deposit = client.Deposits[depositNumber - 1]; // инициализация переменной client
+                    Console.WriteLine("Введите сумму:"); // вывод на консоль
+                    int paymentSum = ReadInt(); // Считать с консоли целочисленное значение
+                    try // Обработка исключений
                     {
-                        deposit.Replenish(paymentSum);
-                        Console.WriteLine("Сумма добавлена к вкладу!");
+                        deposit.Replenish(paymentSum); // Пополнить вклад на заданную сумму
+                        Console.WriteLine("Сумма добавлена к вкладу!"); // вывод на консоль
                     }
-                    catch (DepositException ex)
+                    catch (DepositException ex) // обработка ошибки пополнения вклада
                     {
-                        Console.WriteLine(ex.Message);
+                        Console.WriteLine(ex.Message); // вывод на консоль текста ошибки
                     }
                 }
                 else
-                    Console.WriteLine("Вклада с таким номером нет!");
+                    Console.WriteLine("Вклада с таким номером нет!"); // вывод на консоль
             }
             else
-                Console.WriteLine("Клиента с таким номером нет!");
+                Console.WriteLine("Клиента с таким номером нет!"); // вывод на консоль
         }
 
         /// <summary>
@@ -252,15 +252,15 @@ namespace Samost //пространство имён
         /// <param name="clients"></param>
         public static void CalculateTotalPayoutSum(List<Client> clients)
         {
-            int totalSum = 0;
-            Console.WriteLine("Выплаты:");
-            foreach (var client in clients)
+            int totalSum = 0; // инициализация переменной totalSum
+            Console.WriteLine("Выплаты:"); // вывод на консоль
+            foreach (var client in clients) // перебор списка клиентов
             {
-                int clientSum = client.GetPayoutSum();
-                Console.WriteLine("{0} - {1} руб.", client.Name, clientSum);
-                totalSum += clientSum;
+                int clientSum = client.GetPayoutSum(); // Посчитать сумму выплат для данного клиента
+                Console.WriteLine("{0} - {1} руб.", client.Name, clientSum); // вывод на консоль суммы выплат клиента
+                totalSum += clientSum; // добавить к общей суммы выплат
             }
-            Console.WriteLine("\nОбщая сумма выплат: {0} руб.", totalSum);
+            Console.WriteLine("\nОбщая сумма выплат: {0} руб.", totalSum); // вывод на консоль общей суммы выплат
         }
 
         #endregion

@@ -1,7 +1,7 @@
 ﻿/// Комиссаров Евгений Александрович, 50326-2, вариант 5
-using System;
+using System; // подключение общей библиотеки классов
 
-namespace Samost
+namespace Samost // пространство имён
 {
     /// <summary>
     /// Платёж (пополнение вклада)
@@ -30,7 +30,7 @@ namespace Samost
         /// <returns></returns>
         public override string ToString()
         {
-            return String.Format("{0} - {1} руб.", this.Date, this.Sum);
+            return String.Format("{0} - {1} руб.", this.Date, this.Sum); // вернуть форматированную строку
         }
 
         #endregion
