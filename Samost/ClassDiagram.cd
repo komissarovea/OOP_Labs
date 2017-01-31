@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Samost.Program">
+    <Position X="1.75" Y="1" Width="2" />
+    <Members>
+      <Field Name="CLIENTS_FILE" Hidden="true" />
+      <Field Name="DEPOSITS_FILE" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>ABAAAAgIACAAAgAEACAQAABAABgAAAAAAAAABAAACAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Clients" />
+      <Property Name="DepositTypes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Samost.Client">
+    <Position X="1.75" Y="4.25" Width="2" />
+    <Members>
+      <Field Name="_deposits" Hidden="true" />
+      <Field Name="_name" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>EAAAIAAgAAwAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Model\Client.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Deposits" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Samost.Deposit">
+    <Position X="4.75" Y="4.25" Width="2" />
+    <Members>
+      <Field Name="_payments" Hidden="true" />
+      <Method Name="GetDaysInYear" Hidden="true" />
+      <Field Name="MIN_PAYMENT" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>gAAAAAAgAABAAAAEQAIAIAAAAAAAAAAAAQAAgAAAAAQ=</HashCode>
+      <FileName>Model\Deposit.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Payments" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Samost.DepositType">
+    <Position X="5" Y="1" Width="1.75" />
+    <Members>
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQEAAAAAAQAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Model\DepositType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Samost.Payment">
+    <Position X="7.75" Y="4.5" Width="1.75" />
+    <Members>
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAABAAAAAAAAAAQ=</HashCode>
+      <FileName>Model\Payment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Samost.DepositException">
+    <Position X="7.75" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\DepositException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Samost.NameException">
+    <Position X="7.75" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\NameException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -40,6 +40,20 @@ namespace Samost
 
         #endregion
 
+        #region Properties
+
+        /// <summary>
+        /// Типы вкладов
+        /// </summary>
+        public static Dictionary<int, DepositType> DepositTypes { get; private set; }
+
+        /// <summary>
+        /// Список клиентов
+        /// </summary>
+        public static List<Client> Clients { get; private set; }
+
+        #endregion
+
         #region Deposit Types
 
         /// <summary>
@@ -291,11 +305,11 @@ namespace Samost
         {
             try
             {
-                Dictionary<int, DepositType> depositTypes = LoadDepositTypes();
-                List<Client> clients = LoadClients(depositTypes);
+                DepositTypes = LoadDepositTypes();
+                Clients = LoadClients(DepositTypes);
 
-                int choice = -1;
-                while (choice != 5)
+                int menuItem = 0;
+                while (menuItem != 5)
                 {
                     Console.Clear();
                     Console.WriteLine("МЕНЮ:");
@@ -305,26 +319,26 @@ namespace Samost
                     Console.WriteLine("4) вычислить общую сумму выплат для всех вкладов;");
                     Console.WriteLine("5) сохранить и выйти;");
                     Console.WriteLine("\nВыберите действие:");
-                    choice = ReadInt();
-                    switch (choice)
+                    menuItem = ReadInt();
+                    switch (menuItem)
                     {
                         case 1:
-                            ShowDepositTypes(depositTypes);
+                            ShowDepositTypes(DepositTypes);
                             break;
                         case 2:
-                            ShowClients(clients);
+                            ShowClients(Clients);
                             break;
                         case 3:
-                            ReplenishDeposit(clients);
+                            ReplenishDeposit(Clients);
                             break;
                         case 4:
-                            CalculateTotalPayoutSum(clients);
+                            CalculateTotalPayoutSum(Clients);
                             break;
                         case 5:
-                            SaveClients(clients);
+                            SaveClients(Clients);
                             break;
                     }
-                    Console.Write(choice != 5 ? "\nВернуться в меню... (Enter)" : "Данные сохранены. Выйти... (Enter)");
+                    Console.Write(menuItem != 5 ? "\nВернуться в меню... (Enter)" : "Данные сохранены. Выйти... (Enter)");
                     Console.ReadLine();
                 }
             }
