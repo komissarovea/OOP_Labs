@@ -130,7 +130,6 @@ namespace Samost
         {
             return String.Format("{0}, сумма - {1} руб.", Type.Name, this.Sum); // вернуть форматированную строку
         }
-    }
 
         #endregion
     }

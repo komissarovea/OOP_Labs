@@ -77,7 +77,6 @@ namespace Samost // пространство имён
             return String.Format("{0}, бонус в процентах - {1}%, фиксированный бонус - {2}",
                 this.Name, this.PercentBonus, this.FixBonus); // вернуть форматированную строку
         }
-    }
 
         #endregion
     }
